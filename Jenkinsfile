@@ -22,19 +22,18 @@ pipeline {
 
         stage('Lint / Validación') {
             steps {
-                echo "Validando estructura mínima..."
+                echo 'Validando estructura mínima...'
                 sh 'test -f Dockerfile'
                 sh 'test -f docker-compose.yml'
                 sh 'test -f app/index.html'
-                sh 'test -x scripts/test.sh'
-                echo "Validación OK"
+                sh 'test -f scripts/test.sh'
             }
         }
 
         stage('Test') {
             steps {
-                echo "Ejecutando pruebas..."
-                sh './scripts/test.sh'
+                echo 'Ejecutando pruebas...'
+                sh 'bash scripts/test.sh'
             }
         }
 
