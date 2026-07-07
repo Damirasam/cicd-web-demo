@@ -48,7 +48,7 @@ pipeline {
             steps {
                 echo "Desplegando en STAGING (puerto ${STAGING_PORT})..."
                 // Levanta/actualiza solo el servicio staging
-                sh 'docker compose up -d web-staging'
+                sh 'docker-compose up -d web-staging'
                 echo "Staging actualizado. Verifica en: http://IP-VM:8081"
             }
         }
@@ -70,7 +70,7 @@ pipeline {
         stage('Deploy a Producción') {
             steps {
                 echo "Desplegando en PRODUCCIÓN (puerto ${PROD_PORT})..."
-                sh 'docker compose up -d web-production'
+                sh 'docker-compose up -d web-production'
                 echo "Producción actualizada. Verifica en: http://IP-VM:8082"
             }
         }
